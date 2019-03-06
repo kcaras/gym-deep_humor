@@ -1,12 +1,14 @@
 import gym
 from gym import error, spaces, utils
 from gym.utils import seeding
-
-class FooEnv(gym.Env):
+import DeepQA.chatbot.chatbot as chatbot
+import tensorflow as tf
+class DeepHumorEnv(gym.Env):
   metadata = {'render.modes': ['human']}
 
   def __init__(self):
-    pass
+    with tf.Session() as sess:
+      self.chat = chatbot.get_chatbot(sess, args)
   def step(self, action):
     pass
   def reset(self):
